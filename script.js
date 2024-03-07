@@ -3,12 +3,16 @@
 window.addEventListener("load", function () {
     let form = document.querySelector("form")
     form.addEventListener("submit", () => {
-        let pilotInput = document.querySelector("input[name=pilotName");
-        let copilotInput = document.querySelector("input[name=copilotName");
-        let fuelInput = document.querySelector("input[name=fuelInput]");
-        let cargoInput = document.querySelector("input[name=cargoMass");
+        let pilotInput = document.querySelector("input[name=pilotName]");
+        let copilotInput = document.querySelector("input[name=copilotName]");
+        let fuelInput = document.querySelector("input[name=fuelLevel]");
+        let cargoInput = document.querySelector("input[name=cargoMass]");
         if (pilotInput.value === "" || copilotInput.value === "" || fuelInput.value === "" || cargoInput.value === "") {
             alert("All fields are required.")
+            event.preventDefault();
+        };
+        if (validateInput(fuelInput.value) !== "Is a Number" || validateInput(cargoInput.value) !== "Is a Number") {
+            alert("Invalid input. Verify all values.");
             event.preventDefault();
         };
     });
