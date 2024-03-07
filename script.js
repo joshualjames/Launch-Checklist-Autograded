@@ -15,6 +15,7 @@ window.addEventListener("load", function () {
             alert("Invalid input. Verify all values.");
             event.preventDefault();
         };
+        formSubmission(document, "faultyItems", pilotInput.value, copilotInput.value, fuelInput.value, cargoInput.value);
     });
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
