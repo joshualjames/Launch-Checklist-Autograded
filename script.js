@@ -1,7 +1,17 @@
 // Write your JavaScript code here!
 
-window.addEventListener("load", function() {
-
+window.addEventListener("load", function () {
+    let form = document.querySelector("form")
+    form.addEventListener("submit", () => {
+        let pilotInput = document.querySelector("input[name=pilotName");
+        let copilotInput = document.querySelector("input[name=copilotName");
+        let fuelInput = document.querySelector("input[name=fuelInput]");
+        let cargoInput = document.querySelector("input[name=cargoMass");
+        if (pilotInput.value === "" || copilotInput.value === "" || fuelInput.value === "" || cargoInput.value === "") {
+            alert("All fields are required.")
+            event.preventDefault();
+        };
+    });
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
     let listedPlanetsResponse;
@@ -12,5 +22,5 @@ window.addEventListener("load", function() {
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
     })
-    
- });
+
+});

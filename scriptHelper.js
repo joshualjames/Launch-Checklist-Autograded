@@ -42,3 +42,4 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  module.exports.formSubmission = formSubmission;
  module.exports.pickPlanet = pickPlanet; 
  module.exports.myFetch = myFetch;
+ 
