@@ -16,8 +16,8 @@ window.addEventListener("load", function () {
             alert("Invalid input. Verify all values.");
             event.preventDefault();
         };
-        // let faultyList= "faultyItems"
-        formSubmission(document, "faultyItems", pilotInput.value, copilotInput.value, fuelInput.value, cargoInput.value);
+        let faultyList = document.getElementById("faultyItems");
+        formSubmission(document, faultyList, pilotInput.value, copilotInput.value, fuelInput.value, cargoInput.value);
     });
 
     

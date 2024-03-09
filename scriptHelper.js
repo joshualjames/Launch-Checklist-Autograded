@@ -34,40 +34,45 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    const listUpdate = document.getElementById(list);
-    console.log(listUpdate.style);
+    // const listUpdate = document.getElementById(list);
+    // console.log(listUpdate.style);
     const pilotUpdate = document.getElementById("pilotStatus");
-    pilotUpdate.innerHTML = `<li value=1>Pilot ${pilot} Ready</li>`;
+    pilotUpdate.innerHTML = `<li value=1>Pilot ${pilot} is ready for launch</li>`;
     const copilotUpdate = document.getElementById("copilotStatus");
-    copilotUpdate.innerHTML = `<li value=2>Copilot ${copilot} Ready</li>`;
+    copilotUpdate.innerHTML = `<li value=2>Co-pilot ${copilot} is ready for launch</li>`;
     const fuelLevelUpdate = document.getElementById("fuelStatus");
     const launchStatusUpdate = document.getElementById("launchStatus");
     const cargoStatusUpdate = document.getElementById("cargoStatus");
     if (Number(fuelLevel) < 10000 && Number(cargoLevel) < 10000) {
 
-        listUpdate.style.visibility = "visible"
-        console.log(listUpdate);
+        list.style.visibility = "visible"
         fuelLevelUpdate.innerHTML = `<li style=color:red value=3>Fuel level too low for launch.</li>`
         console.log(fuelLevelUpdate);
         cargoStatusUpdate.innerHTML = `<li value=4>Cargo mass low enough for launch.</li>`
-        launchStatusUpdate.innerHTML = `<h2 style=color:red>Shuttle not ready for launch</h2>`
-        event.preventDefault();
-    } else if (Number(fuelLevel) > 10000 && Number(cargoLevel) > 10000) {
-        listUpdate.style = "visibility:visible"
+        launchStatusUpdate.innerHTML = `<h2 syle=color:'red'>Shuttle Not Ready for Launch</h2>`
+        launchStatusUpdate.style.color = 'red';
+        // event.preventDefault();
+    } else if (Number(fuelLevel) > 9999 && Number(cargoLevel) > 9999) {
+        list.style.visibility = "visible"
         fuelLevelUpdate.innerHTML = `<li value=3>Fuel level high enough for launch.</li>`
-        cargoStatusUpdate.innerHTML = `<li style=color:red value=4>Cargo mass too high for launch.</li>`
-        launchStatusUpdate.innerHTML = `<h2 style=color:red>Shuttle not ready for launch</h2>`
-        event.preventDefault();
+        cargoStatusUpdate.innerHTML = `<li style=color:red value=4>Cargo mass too heavy for launch.</li>`
+        launchStatusUpdate.innerHTML = `<h2>Shuttle Not Ready for Launch</h2>`
+        launchStatusUpdate.style.color = 'red';
+        // event.preventDefault();
     } else if (Number(fuelLevel) < 10000 && Number(cargoLevel) > 10000) {
-        listUpdate.style = "visibility:visible"
-        fuelLevelUpdate.innerHTML = `<li style=color:red value=3>Fuel too low for launch.</li>`
-        cargoStatusUpdate.innerHTML = `<li style=color:red value=4>Cargo mass too high for launch.</li>`
-        launchStatusUpdate.innerHTML = `<h2 style=color:red>Shuttle not ready for launch</h2>`
-        event.preventDefault();
+        list.style.visibility = "visible"
+        fuelLevelUpdate.innerHTML = `<li style=color:red value=3>Fuel level too low for launch.</li>`
+        cargoStatusUpdate.innerHTML = `<li style=color:red value=4>Cargo mass too heavy for launch.</li>`
+        launchStatusUpdate.innerHTML = `<h2>Shuttle Not Ready for Launch</h2>`
+        launchStatusUpdate.style.color = 'red';
+        // event.preventDefault();
     } else {
-        launchStatusUpdate.innerHTML = `<h2 style=color:green>Shuttle ready for launch!</h2>`
-        listUpdate.style = "visibility: hidden"
-        event.preventDefault();
+        launchStatusUpdate.innerHTML = "Shuttle is Ready for Launch"
+        fuelLevelUpdate.innerHTML = `<li value=3>Fuel level high enough for launch.</li>`
+        cargoStatusUpdate.innerHTML = `<li value=4>Cargo mass low enough for launch.</li>`
+        launchStatusUpdate.style.color = 'green'
+        list.style.visibility = "visible"
+        // event.preventDefault();
     }
 }
 
