@@ -8,15 +8,8 @@ window.addEventListener("load", function () {
         let copilotInput = document.querySelector("input[name=copilotName]");
         let fuelInput = document.querySelector("input[name=fuelLevel]");
         let cargoInput = document.querySelector("input[name=cargoMass]");
-        if (pilotInput.value === "" || copilotInput.value === "" || fuelInput.value === "" || cargoInput.value === "") {
-            alert("All fields are required.")
-            event.preventDefault();
-        };
-        if (validateInput(fuelInput.value) !== "Is a Number" || validateInput(cargoInput.value) !== "Is a Number") {
-            alert("Invalid input. Verify all values.");
-            event.preventDefault();
-        };
         let faultyList = document.getElementById("faultyItems");
+        event.preventDefault();
         formSubmission(document, faultyList, pilotInput.value, copilotInput.value, fuelInput.value, cargoInput.value);
     });
 
